@@ -1,9 +1,8 @@
 package Springboot.example.SpringbootFirstApplication.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.PathVariable;
+
+import Springboot.example.SpringbootFirstApplication.dto.User;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -23,10 +22,15 @@ public class Controller {
         return "Hello " + name + " from BridgeLabz";
     }
 
+    @PostMapping("/hello/post")
+    public String sayHello(@RequestBody User user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
+    }
 
-
-
-
-
+    @PutMapping("/hello/put/{firstName}")
+    public String sayHelloPut(@PathVariable String firstName,
+                              @RequestParam String lastName) {
+        return "Hello " + firstName + " " + lastName + " from BridgeLabz";
+    }
 
 }
