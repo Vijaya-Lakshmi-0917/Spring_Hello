@@ -1,4 +1,4 @@
-package Springboot.example.SpringbootFirstApplication;
+package Springboot.example.SpringbootFirstApplication.dto;
 
 public class User {
     private String firstName;
